@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from ninja import NinjaAPI
+
+from library.apis import router
+
+api = NinjaAPI(version="1.0", title="Library API")
+
+api.add_router("/publisher", router)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
+    path("api/v1/", api.urls),
 ]
