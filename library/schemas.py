@@ -8,3 +8,14 @@ class PublisherIn(Schema):
 class PublisherOut(Schema):
     id: int
     name: str
+
+
+class AuthorIn(Schema):
+    name: str = None
+    email: str = None
+
+
+class AuthorOut(Schema):
+    id: int
+    name: str
+    email: str = None

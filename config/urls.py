@@ -17,11 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from ninja import NinjaAPI
 
+from library.apis.author import router as author_router
 from library.apis.publisher import router as publisher_router
 
 api = NinjaAPI(version="1.0", title="Library API")
 
 api.add_router("/publisher", publisher_router)
+api.add_router("/author", author_router)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
