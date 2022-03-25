@@ -4,10 +4,16 @@ from django.db import models
 class Publisher(models.Model):
     name = models.CharField(max_length=20)
 
+    def __str__(self):
+        return self.name
+
 
 class Author(models.Model):
     name = models.CharField(max_length=10)
     email = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.name
 
 
 class Book(models.Model):
@@ -21,3 +27,6 @@ class Book(models.Model):
     release_date = models.DateField()
     create_date = models.DateTimeField(auto_now_add=True, editable=False)
     update_date = models.DateTimeField(auto_now=True, editable=False)
+
+    def __str__(self):
+        return f"{self.name} - {self.sub_name}"
